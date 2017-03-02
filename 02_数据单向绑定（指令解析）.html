@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			数据单向绑定，指令解析
+				1.获取el所对应的dom节点
+				2.把dom节点中的所有子节点移给一个文档碎片
+				3.遍历这个文档碎片，解析节点（找指令）
+				4.根据节点类型不同调用不同的元素解析函数（元素节点  文本节点）
+				5.根据指令类型不同调用不同的指令解析函数（事件指令 普通指令）
+				6.根据指令值不同调用不同的更新器
+			
+		-->
+	</head>
+	<body>
+		<div id="app">
+			<span v-text="subs.name"></span>
+			<span v-html="subs.age"></span>
+			{{name}}
+		</div>
+	</body>
+	<script src="MVVM/mvvm.js"></script>
+	<script src="MVVM/compile.js"></script>
+	<script src="MVVM/observer.js"></script>
+	<script src="MVVM/watcher.js"></script>
+	<script type="text/javascript">
+		var vm=new MVVM({
+			el:"#app",
+			data:{
+				name:"AAA",
+				age:18,
+				subs:{
+					name:"BBB",
+					age:44
+				}
+			}
+		});
+		
+		vm.subs.name="CCC";
+		
+	</script>
+</html>

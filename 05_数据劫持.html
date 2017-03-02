@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			数据代理
+				为vm新增访问描述符（来源于data的数据描述符）
+			
+			数据劫持
+				将data中的属性重定义为访问描述符			
+		-->
+	</head>
+	<body>
+		<div id="app">
+			{{msg.subs.name}}
+		</div>
+	</body>
+	<script src="MVVM/mvvm.js"></script>
+	<script src="MVVM/compile.js"></script>
+	<script src="MVVM/observer.js"></script>
+	<script src="MVVM/watcher.js"></script>
+	<script type="text/javascript">
+		var vm=new MVVM({
+			el:"#app",
+			data:{
+				name:"aaa",
+				age:18,
+				msg:{
+					name:"bbb",
+					age:44,
+          subs:{
+						name:"ccc",
+						age:55
+					}
+				}
+			}
+		});
+		
+		
+	</script>
+</html>

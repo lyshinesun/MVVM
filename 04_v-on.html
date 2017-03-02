@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="换wife" v-on:click="change"/>{{msg}}
+		</div>
+	</body>
+	<script src="MVVM/mvvm.js"></script>
+	<script src="MVVM/compile.js"></script>
+	<script src="MVVM/observer.js"></script>
+	<script src="MVVM/watcher.js"></script>
+	<script type="text/javascript">
+		var vm=new MVVM({
+			el:"#app",
+			data:{
+				msg:"aaa"
+			},
+			methods:{
+				change:function(){
+					//硬绑定
+					this.msg="bbb"
+				}
+			}
+		});
+	</script>
+</html>

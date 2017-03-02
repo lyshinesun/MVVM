@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			数据代理：将一个对象属性的管理权限交给另外一个对象
+			使用到的技术：访问描述符 get/set方法
+			原理：将源对象中的属性一一取出，为目标对象绑定访问描述符（访问描述符的数据源来至于源对象）
+				每一次目标对象的读取和设置其实是通过set、get方法来读取设置源对象的属性值
+		-->
+	</head>
+	<body>
+		<div id="app">
+			{{name}}
+		</div>
+	</body>
+	<script src="MVVM/mvvm.js"></script>
+	<script src="MVVM/compile.js"></script>
+	<script src="MVVM/observer.js"></script>
+	<script src="MVVM/watcher.js"></script>
+	<script type="text/javascript">
+		"use strict"
+		var vm=new MVVM({
+			el:"#app",
+			data:{
+				name:"AAA",
+				age:18,
+				subs:{
+					name:"BBB",
+					age:44
+				}
+			}
+		});
+		
+		console.log(vm.name) //AAA
+		vm.name="CCC";
+		
+		/*delete vm.name;*///报错，说明是不可配置的
+		
+
+	</script>
+</html>

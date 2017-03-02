@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			view-model
+				view层的数据改变触发一个input事件（改变model层数据） -- 通知dep对应的所有watcher去更新view层
+			
+			model-view
+				改变model层数据  -- 通知dep对应的所有watcher去更新view层
+		-->
+	</head>
+	<body>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div id="app">
+			<input type="text" v-model="msg.name"/>
+			<span v-text="msg.name"></span>
+		</div>
+	</body>
+	<script src="MVVM/mvvm.js"></script>
+	<script src="MVVM/compile.js"></script>
+	<script src="MVVM/observer.js"></script>
+	<script src="MVVM/watcher.js"></script>
+	<script type="text/javascript">
+		var vm=new MVVM({
+			el:"#app",
+			data:{
+				msg:{
+					name:"aaa"
+				}
+			}
+		});
+		
+		vm.msg.name="bbb"
+	</script>
+</html>

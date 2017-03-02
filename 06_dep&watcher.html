@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			指令解析的最后一步，
+				1.为每一个普通指令去构造一个watcher
+				2.构造了dep与watcher之间的关系
+						dep有一个数组来存放watcher,具体dep存放多少个watcher，取决于属性被多少个指令用
+						watcher有一个对象来存放dep的uid（身份证），具体watcher存放多少个dep，取决于指令中属性的深度
+						
+				dep与 watcher是多对多的关系！！！！！
+		-->
+	</head>
+	<body>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div id="app">
+			<input type="text" v-model="msg.name"/>{{msg}}
+			<span v-text="msg.name"></span>
+		</div>
+	</body>
+	<script src="MVVM/mvvm.js"></script>
+	<script src="MVVM/compile.js"></script>
+	<script src="MVVM/observer.js"></script>
+	<script src="MVVM/watcher.js"></script>
+	<script type="text/javascript">
+		var vm=new MVVM({
+			el:"#app",
+			data:{
+				msg:{
+					name:"aaa"
+				}
+			}
+		});
+	</script>
+</html>
